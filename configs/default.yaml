@@ -1,0 +1,98 @@
+# Default Configuration for Product Feature Analysis
+
+# Project Information
+project_name: "Product Feature Analysis"
+version: "1.0.0"
+description: "Extract and analyze product features from customer reviews"
+
+# Data Configuration
+data_config:
+  # Data paths
+  raw_data_path: "data/raw"
+  processed_data_path: "data/processed"
+  
+  # Dataset parameters
+  n_reviews: 1000
+  n_products: 10
+  min_review_length: 10
+  max_review_length: 500
+  
+  # Text preprocessing
+  remove_stopwords: true
+  min_word_length: 2
+  max_word_length: 20
+  lemmatize: true
+  
+  # Feature extraction
+  min_feature_frequency: 3
+  max_features: 1000
+  ngram_range: [1, 3]
+
+# Model Configuration
+model_config:
+  # Sentiment analysis
+  sentiment_model: "textblob"  # textblob, transformers, spacy
+  sentiment_threshold: 0.1
+  
+  # Feature extraction
+  feature_extractor: "noun_phrases"  # noun_phrases, ner, keywords
+  use_aspect_sentiment: true
+  
+  # Clustering
+  clustering_method: "kmeans"  # kmeans, dbscan, hierarchical
+  n_clusters: 5
+  clustering_features: null
+  
+  # Random seed
+  random_seed: 42
+
+# Evaluation Configuration
+eval_config:
+  # Metrics
+  metrics:
+    - "accuracy"
+    - "precision"
+    - "recall"
+    - "f1"
+    - "auc_roc"
+    - "auc_pr"
+    - "calibration_error"
+  
+  # Cross-validation
+  cv_folds: 5
+  test_size: 0.2
+  
+  # Business metrics
+  business_metrics:
+    - "feature_coverage"
+    - "sentiment_consistency"
+    - "actionability_score"
+    - "insight_quality"
+
+# Visualization Configuration
+viz_config:
+  # Plot settings
+  figure_size: [12, 8]
+  dpi: 300
+  style: "seaborn-v0_8"
+  
+  # Colors
+  color_palette: "viridis"
+  sentiment_colors:
+    positive: "#2E8B57"
+    negative: "#DC143C"
+    neutral: "#808080"
+  
+  # Output
+  save_plots: true
+  plot_format: "png"
+  plot_path: "assets/plots"
+
+# Application Configuration
+log_level: "INFO"
+log_file: "logs/app.log"
+
+# Compliance
+anonymize_data: true
+remove_pii: true
+disclaimer_required: true
